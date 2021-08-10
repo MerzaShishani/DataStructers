@@ -1,11 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        Array numbers = new Array(3);
-        numbers.insert(1);
-        numbers.insert(1);
-        numbers.insert(1);
-        numbers.insert(1);
-        numbers.print();
+
+        LinkedList list = new LinkedList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        System.out.println(list.contains(2));
+
     }
+
+
 }
