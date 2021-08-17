@@ -1,20 +1,17 @@
+import java.io.StringBufferInputStream;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
+        String name= "(<>)";
 
-        LinkedList list = new LinkedList();
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(3);
-        list.reverse();
-        var array = list.toArray();
-        System.out.println(Arrays.toString(array));
+        System.out.println(StackUtils.isBalanced(name));
+
 
 
     }
-
-
 }

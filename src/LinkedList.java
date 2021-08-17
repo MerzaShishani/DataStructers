@@ -103,11 +103,51 @@ public class LinkedList {
     }
 
     public void reverse(){
-        int index=0;
-        Node current=getPrevious(last);
-        for (int i = 0; i < size; i++) {
+        if (isEmpty()) return;
 
+        Node previous = first;
+        Node current = first.next;
+        while(current != null){
+            Node next = current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
         }
+
+        last = first;
+        last.next=null;
+        first = previous;
+    }
+
+    public int getKthFromTheEnd(int k){
+        if(isEmpty()) throw new IllegalStateException();
+        Node kth = first;
+        Node second = first;
+
+        for (int i = 1; i < k; i++) {
+            second = second.next;
+            if (second == null) throw new IllegalArgumentException();
+        }
+        while(second!=last){
+            kth=kth.next;
+            second=second.next;
+        }
+        return kth.value;
+    }
+
+    public void printMiddle(){
+        if (isEmpty()) throw new IllegalStateException();
+        Node a=first;
+        Node b=first;
+        while (b.next != last && b.next !=null){
+            a=a.next;
+            b=b.next.next;
+        }
+
+        if(b==last)
+            System.out.println(a.value);
+        else
+            System.out.println(a.value+ " " +a.next.value);
     }
 
     private boolean isEmpty(){
